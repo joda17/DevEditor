@@ -113,15 +113,14 @@ Editor.prototype.callEnterEvent = function(){
 Editor.prototype.callBackspaceEvent = function(){
 	if(this.cursor[1] > 0){
 		this.rowsData[this.cursor[0]] = this.rowsData[this.cursor[0]].slice(0, this.cursor[1] - 1) + this.rowsData[this.cursor[0]].slice(this.cursor[1], this.rowsData[this.cursor[0]].length);
-		this.cursor[1]--;
+		this.setCursor(this.cursor[0], this.cursor[1] - 1);
 		this.refreshRow(this.cursor[0]);
 	}
 	else if(this.cursor[0] > 0) {
 		var newCursorPos = this.rowsData[this.cursor[0]-1].length;
 		this.rowsData[this.cursor[0]-1] += this.rowsData[this.cursor[0]];
 		this.removeRowAt(this.cursor[0]);
-		this.cursor[0]--;
-		this.cursor[1] = newCursorPos;
+		this.setCursor(this.cursor[0]-1, newCursorPos);
 		this.refreshRow(this.cursor[0]);
 		this.refreshRow(this.cursor[0]+1);
 	}
