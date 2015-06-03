@@ -31,7 +31,7 @@ function Editor(editorArea, startRowsAmount){
 Editor.prototype.callClickedRowEvent = function(id, x, y){
 	var cursor = 0;
 	for(var i in this.rows[id].children){
-		if(this.rows[id].children[i].offsetLeft < x)cursor = Number(i);
+		if(this.rows[id].children[i].offsetLeft < x + window.pageXOffset)cursor = Number(i);
 	}
 	this.setCursor(id, cursor);
 
