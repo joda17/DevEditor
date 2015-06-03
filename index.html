@@ -13,8 +13,8 @@
 			div.selectedRow { 
 				background-color: #D5E1FF;
 				box-shadow: 0 0 5px #D5E1FF;
-				font-size: 25px;
-				height: 29px;
+				font-size: 27px;
+				height: 31px;
 			}
 			span.cursor {
 				animation: cursor steps(1) 1.5s infinite;
@@ -64,4 +64,10 @@
 		editor.callEnterEvent();
 	}
 	keyboardDiv.appendChild(buttonEnter);
+	var buttonBackspace = document.createElement("button");
+	buttonBackspace.innerHTML = "Backspace";
+	buttonBackspace.onclick = function(e){
+		editor.callBackspaceEvent();
+	}
+	keyboardDiv.appendChild(buttonBackspace);
 </script>

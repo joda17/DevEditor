@@ -110,6 +110,22 @@ Editor.prototype.callEnterEvent = function(){
 	this.rowsData[this.cursor[0]] = this.rowsData[this.cursor[0]].slice(0, this.cursor[1]);
 	this.setCursor(this.cursor[0]+1, 0);
 }
+Editor.prototype.callBackspaceEvent = function(){
+	if(this.cursor[1] > 0){
+		this.rowsData[this.cursor[0]] = this.rowsData[this.cursor[0]].slice(0, this.cursor[1] - 1) + this.rowsData[this.cursor[0]].slice(this.cursor[1], this.rowsData[this.cursor[0]].length);
+		this.cursor[1]--;
+		this.refreshRow(this.cursor[0]);
+	}
+	else if(this.cursor[0] > 0) {
+		var newCursorPos = this.rowsData[this.cursor[0]-1].length;
+		this.rowsData[this.cursor[0]-1] += this.rowsData[this.cursor[0]];
+		this.removeRowAt(this.cursor[0]);
+		this.cursor[0]--;
+		this.cursor[1] = newCursorPos;
+		this.refreshRow(this.cursor[0]);
+		this.refreshRow(this.cursor[0]+1);
+	}
+}
 Editor.prototype.addRowAt = function(id){
 	if(id < 0)id = 0;
 	if(id > this.rows.length)id = this.rows.length;
@@ -122,4 +138,21 @@ Editor.prototype.addRowAt = function(id){
 	}
 	this.rowsData[id] = "";
 	this.refreshRow(id);
+}
+Editor.prototype.removeLastRow = function(){
+	var id = this.rows.length - 1;
+	this.rowsData.pop(id);
+	this.editorArea.removeChild(this.rows[id]);
+	this.rows.pop(id);
+}
+Editor.prototype.removeRowAt = function(id){
+	if(id < 0)id = 0;
+	if(id >= this.rows.length)id = this.rows.length - 1;
+	
+	for(var i = id;i < this.rows.length - 1;i++){
+		this.rowsData[i] = this.rowsData[i+1];
+		this.refreshRow(i);
+	}
+	
+	this.removeLastRow();
 }
