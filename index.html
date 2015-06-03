@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			div.editRow {
+				width: 100%;
+				height: 24px;
+				background-color: #E7E7E7;
+				font-size: 20px;
+			}
+			div.selectedRow { 
+				background-color: #D5E1FF;
+				box-shadow: 0 0 5px #D5E1FF;
+				font-size: 25px;
+				height: 29px;
+			}
+			span.cursor {
+				animation: cursor steps(1) 1.5s infinite;
+			}
+			@keyframes cursor {  
+				0% { opacity: 1.0; }
+				65% { opacity: 0.0; }
+				100% { opacity: 1.0; }
+			}
+			#keyboard {
+				width: 100%;
+				height: 30%;
+				position: fixed;
+				bottom: 0;
+			}
+			#keyboard button {
+				width: 45px;
+				height: 35px;
+				margin: 10px;
+			}
+		</style>
+		<script type="text/javascript" src="editor.js"></script>
+	</head>
+	<body style="margin:0;padding:0;border:0;">
+		<div id="editArea" style="width: 100%;font-size:20px"></div>
+		<div id="keyboard"></div>
+	</body>
+</html>
+<script>
+	var editor = new Editor(document.getElementById("editArea"), 10);
+	
+	//keyboard
+	var chars = "qwertyuiopasdfghjklzxcvbnm,.[];:{}<>?/\|+=-_*&^%$#@!~`'" + '"';
+	var keyboardDiv = document.getElementById("keyboard");
+	for(var i = 0;i < chars.length;i++){
+		var button = document.createElement("button");
+		button.value = chars[i];
+		button.innerHTML = chars[i];
+		button.onclick = function(e){
+			editor.write(this.value);
+		}
+		keyboardDiv.appendChild(button);
+	}
+	
+	/*
+	function addRow(){
+		
+	}
+	var editRowHTML = "<div id='editRow-{id}' class='editrow' onclick='selectRow({id})'></div>"
+	var editArea = document.getElementById("editArea");
+	var rows = {};
+	var data = [];
+	var cursor = [0,0];
+	for(var i = 0;i < 15;i++){
+		editArea.innerHTML += editRowHTML.replace(/{id}/gi, i);
+	}
+	for(var i = 0;i < 15;i++){
+		rows[i] = document.getElementById("editRow-" + i);
+	}
+	editArea.onclick = function(e){
+		//editArea.innerHTML += "   x:" + e.clientX + " y:" + e.clientY + "   ";
+		var startY = 0;
+		var rowHeight = 24;
+		var rowNum = Math.floor(((e.clientY - startY)/rowHeight)) ;
+		//editArea.innerHTML += editRowHTML.replace("[id]", rowNum);
+		//var row = document.getElementById("editRow-" + rowNum).style.backgroundColor = "blue";
+	}
+	function selectRow(id){
+		for(var r in rows){
+			if(r==id)continue;
+			//rows[r].style.backgroundColor = "grey";
+			var input = document.getElementById("editRowInput-" + r);
+			if(input){
+				value = input.value;
+				value = value.replace(/&/gi, "&amp;");
+				value = value.replace(/</gi, "&lt;");
+				value = value.replace(/>/gi, "&gt;");
+				rows[r].innerHTML = value;
+			}
+		}
+		//rows[id].style.backgroundColor = "blue";
+		var value = rows[id].innerHTML;
+		if(!document.getElementById("editRowInput-" + id)){
+			//rows[id].innerHTML = "<input type='text' id='editRowInput-" + id + "'class='selectedRow' value='" + value + "'>"
+		cursor = [id, 0];
+		}
+	}
+	
+	setInterval( function(){
+		var time = new Date().getTime() / 1000.0;
+		console.log(Math.round(time)%2);
+		if(Math.round(time)%2 == 0)rows[cursor[0]].style.backgroundColor = "white";
+		else rows[cursor[0]].style.backgroundColor = "red";
+	}, 1 );
+	*/
+</script>
