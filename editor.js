@@ -91,3 +91,35 @@ Editor.prototype.write = function(char){
 	this.rowsData[this.cursor[0]] = row;
 	this.setCursor(this.cursor[0], this.cursor[1] + char.length);
 }
+Editor.prototype.addRow = function(){
+	var id = this.rows.length;
+	this.rowsData[id] = "";
+	var row = this.rows[id] = document.createElement("div");
+	row.innerHTML = this.formatRowData(this.rowsData[id], -1);
+	row.classList.add("editRow");
+	var editor = this;
+	row.rowId = id;
+	row.onclick = function(e){
+		editor.callClickedRowEvent(this.rowId, e.clientX, e.clientY);
+	}
+	this.editorArea.appendChild(row);
+}
+Editor.prototype.callEnterEvent = function(){
+	this.addRowAt(this.cursor[0]+1);
+	this.rowsData[this.cursor[0]+1] = this.rowsData[this.cursor[0]].slice(this.cursor[1], this.rowsData[this.cursor[0]].length);
+	this.rowsData[this.cursor[0]] = this.rowsData[this.cursor[0]].slice(0, this.cursor[1]);
+	this.setCursor(this.cursor[0]+1, 0);
+}
+Editor.prototype.addRowAt = function(id){
+	if(id < 0)id = 0;
+	if(id > this.rows.length)id = this.rows.length;
+	
+	this.addRow();
+	
+	for(var i = this.rows.length-2;i >= id;i--){
+		this.rowsData[i+1] = this.rowsData[i];
+		this.refreshRow(i+1);
+	}
+	this.rowsData[id] = "";
+	this.refreshRow(id);
+}

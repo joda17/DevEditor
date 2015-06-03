@@ -31,7 +31,7 @@
 				bottom: 0;
 			}
 			#keyboard button {
-				width: 45px;
+				min-width: 45px;
 				height: 35px;
 				margin: 10px;
 			}
@@ -58,56 +58,10 @@
 		}
 		keyboardDiv.appendChild(button);
 	}
-	
-	/*
-	function addRow(){
-		
+	var buttonEnter = document.createElement("button");
+	buttonEnter.innerHTML = "Enter";
+	buttonEnter.onclick = function(e){
+		editor.callEnterEvent();
 	}
-	var editRowHTML = "<div id='editRow-{id}' class='editrow' onclick='selectRow({id})'></div>"
-	var editArea = document.getElementById("editArea");
-	var rows = {};
-	var data = [];
-	var cursor = [0,0];
-	for(var i = 0;i < 15;i++){
-		editArea.innerHTML += editRowHTML.replace(/{id}/gi, i);
-	}
-	for(var i = 0;i < 15;i++){
-		rows[i] = document.getElementById("editRow-" + i);
-	}
-	editArea.onclick = function(e){
-		//editArea.innerHTML += "   x:" + e.clientX + " y:" + e.clientY + "   ";
-		var startY = 0;
-		var rowHeight = 24;
-		var rowNum = Math.floor(((e.clientY - startY)/rowHeight)) ;
-		//editArea.innerHTML += editRowHTML.replace("[id]", rowNum);
-		//var row = document.getElementById("editRow-" + rowNum).style.backgroundColor = "blue";
-	}
-	function selectRow(id){
-		for(var r in rows){
-			if(r==id)continue;
-			//rows[r].style.backgroundColor = "grey";
-			var input = document.getElementById("editRowInput-" + r);
-			if(input){
-				value = input.value;
-				value = value.replace(/&/gi, "&amp;");
-				value = value.replace(/</gi, "&lt;");
-				value = value.replace(/>/gi, "&gt;");
-				rows[r].innerHTML = value;
-			}
-		}
-		//rows[id].style.backgroundColor = "blue";
-		var value = rows[id].innerHTML;
-		if(!document.getElementById("editRowInput-" + id)){
-			//rows[id].innerHTML = "<input type='text' id='editRowInput-" + id + "'class='selectedRow' value='" + value + "'>"
-		cursor = [id, 0];
-		}
-	}
-	
-	setInterval( function(){
-		var time = new Date().getTime() / 1000.0;
-		console.log(Math.round(time)%2);
-		if(Math.round(time)%2 == 0)rows[cursor[0]].style.backgroundColor = "white";
-		else rows[cursor[0]].style.backgroundColor = "red";
-	}, 1 );
-	*/
+	keyboardDiv.appendChild(buttonEnter);
 </script>
