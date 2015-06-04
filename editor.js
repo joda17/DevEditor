@@ -13,7 +13,7 @@ function Editor(editorArea, startRowsAmount){
 	var cursor = this.cursor = [0, 0];
 	
 	for(var i = 0;i < startRowsAmount;i++){
-		rowsData[i] = "abc<div><br></div>" + i;
+		rowsData[i] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 		var row = rows[i] = document.createElement("div");
 		row.innerHTML = this.formatRowData(rowsData[i], -1);
 		row.classList.add("editRow");
