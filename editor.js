@@ -41,7 +41,6 @@ Editor.prototype.selectRow = function(id){
 		if(i!=id)this.rows[i].classList.remove("selectedRow");
 	}
 	this.rows[id].classList.add("selectedRow");
-	if(id == this.rows.length - 1)this.write("asdfghjklkjhgfdsadfghj");
 }
 Editor.prototype.formatRowData = function(data, cursor){
 	var formated = data;
