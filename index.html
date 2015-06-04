@@ -24,28 +24,65 @@
 				65% { opacity: 0.0; }
 				100% { opacity: 1.0; }
 			}
-			#keyboard {
+			#editor {
+				overflow: auto;
 				width: 100%;
-				height: 30%;
+			}
+			#keyboard {
 				position: fixed;
 				bottom: 0;
+				background-color: grey;
+				opacity: 0.6;
 			}
-			#keyboard button {
-				min-width: 45px;
-				height: 35px;
-				margin: 10px;
+			div.mainKeyboard {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				background-color: red;
+			}
+			div.joystickKeyboard {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				background-color: green;
+			}
+			div.specialKeyboard {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				background-color: blue;
+			}
+			@keyframes moveKeyboardToLeft {  
+				0% { right: 0%; }
+				100% { right: 100%; }
+			}
+			@keyframes moveKeyboardToRight {  
+				0% { left: 0%; }
+				100% { left: 100%; }
+			}
+			@keyframes moveKeyboardFromRight {  
+				0% { left: 100%; }
+				100% { left: 0%; }
+			}
+			@keyframes moveKeyboardFromLeft {  
+				0% { right: 100%; }
+				100% { right: 0%; }
 			}
 		</style>
 		<script type="text/javascript" src="editor.js"></script>
+		<script type="text/javascript" src="keyboard.js"></script>
 	</head>
 	<body style="margin:0;padding:0;border:0;">
-		<div id="editArea" style="min-width: 100%;font-size:20px;display: inline-block;"></div>
+		<div id="editor"><div id="editArea" style="min-width: 100%;font-size:20px;display: inline-block;"></div></div>
 		<div id="keyboard"></div>
 	</body>
 </html>
 <script>
 	var editor = new Editor(document.getElementById("editArea"), 10);
 	
+	var keyboard = new Keyboard(document.body.clientWidth, document.body.clientHeight, document.getElementById("keyboard"));
+	
+	/*
 	//keyboard
 	var chars = "qwertyuiopasdfghjklzxcvbnm,.[];:{}<>?/\|+=-_*&^%$#@!~`'" + '"';
 	var keyboardDiv = document.getElementById("keyboard");
@@ -70,4 +107,5 @@
 		editor.callBackspaceEvent();
 	}
 	keyboardDiv.appendChild(buttonBackspace);
+	*/
 </script>
