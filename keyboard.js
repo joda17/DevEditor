@@ -4,15 +4,19 @@ KEYBOARD.JOYSTICK = 2;
 KEYBOARD.SPECIAL = 0;
 
 var BUTTONSSCHEMAT = {};
-BUTTONSSCHEMAT[KEYBOARD.MAIN] = {info: {maxX: 10,maxY: 3}, data:[{type:"normal",value:'q',startX:0,endX:1,startY:0,endY:1},{type:"normal",value:'w',startX:1,endX:2,startY:0,endY:1},{type:"normal",value:'e',startX:2,endX:3,startY:0,endY:1},{type:"normal",value:'r',startX:3,endX:4,startY:0,endY:1},{type:"normal",value:'t',startX:4,endX:5,startY:0,endY:1}]};
+BUTTONSSCHEMAT[KEYBOARD.MAIN] = {info: {maxX: 8,maxY: 5}, data:[
+{type:"normal",value:'q',startX:0,endX:1,startY:1,endY:2},{type:"normal",value:'w',startX:1,endX:2,startY:1,endY:2},{type:"normal",value:'e',startX:2,endX:3,startY:1,endY:2},{type:"normal",value:'r',startX:3,endX:4,startY:1,endY:2},{type:"normal",value:'t',startX:4,endX:5,startY:1,endY:2},{type:"normal",value:'y',startX:5,endX:6,startY:1,endY:2},{type:"normal",value:'u',startX:6,endX:7,startY:1,endY:2},{type:"normal",value:'i',startX:7,endX:8,startY:1,endY:2},{type:"normal",value:'o',startX:8,endX:9,startY:1,endY:2},{type:"normal",value:'p',startX:9,endX:10,startY:1,endY:2},{type:"normal",value:'1',svalue:'!',startX:0,endX:1,startY:0,endY:1},{type:"normal",value:'2',svalue:'+',startX:1,endX:2,startY:0,endY:1},{type:"normal",value:'3',svalue:'-',startX:2,endX:3,startY:0,endY:1},{type:"normal",value:'4',svalue:'*',startX:3,endX:4,startY:0,endY:1},{type:"normal",value:'5',svalue:'/',startX:4,endX:5,startY:0,endY:1},{type:"normal",value:'6',svalue:'=',startX:5,endX:6,startY:0,endY:1},{type:"normal",value:'7',svalue:'^',startX:6,endX:7,startY:0,endY:1},{type:"normal",value:'8',svalue:'%',startX:7,endX:8,startY:0,endY:1},{type:"normal",value:'9',svalue:'~',startX:8,endX:9,startY:0,endY:1},{type:"normal",value:'0',svalue:'\\',startX:9,endX:10,startY:0,endY:1},
+{type:"normal",value:'↑',startX:0,endX:1,startY:2,endY:3},{type:"normal",value:'a',startX:1,endX:2,startY:2,endY:3},{type:"normal",value:'s',startX:2,endX:3,startY:2,endY:3},{type:"normal",value:'d',startX:3,endX:4,startY:2,endY:3},{type:"normal",value:'f',startX:4,endX:5,startY:2,endY:3},{type:"normal",value:'g',startX:5,endX:6,startY:2,endY:3},{type:"normal",value:'h',startX:6,endX:7,startY:2,endY:3},{type:"normal",value:'j',startX:7,endX:8,startY:2,endY:3},{type:"normal",value:'k',startX:8,endX:9,startY:2,endY:3},{type:"normal",value:'l',startX:9,endX:10,startY:2,endY:3}
+]};
 
 function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor){
+	this.shift = false;
 	this.keyboardSize = {x: pageSizeX, y: 2*(pageSizeY/5)};
 	this.editor = editor;
 	this.selectedKeyboard = KEYBOARD.MAIN;
 	this.keyboardArea = keyboardArea;
 	this.keyboards = [];
-	//this.buttons = [];
+	this.touchInfo = {};
 	keyboardArea.style.height = this.keyboardSize.y + "px";
 	keyboardArea.style.width = this.keyboardSize.x + "px";
 	
@@ -20,44 +24,23 @@ function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor){
 	
 	var specialKeyboard = this.keyboards[KEYBOARD.SPECIAL] = document.createElement("div");
 	specialKeyboard.classList.add("specialKeyboard");
-	specialKeyboard.onclick = function(e){
-		if(e.target == specialKeyboard){
-			if(e.clientX < (pageSizeX/2)){
-				k.selectKeyboard((KEYBOARD.SPECIAL > 0) ? KEYBOARD.SPECIAL-1 : KEYBOARD.SPECIAL);
-			}
-			else {
-				k.selectKeyboard((KEYBOARD.SPECIAL < 2) ? KEYBOARD.SPECIAL+1 : KEYBOARD.SPECIAL);
-			}
-		}
-	}
+	specialKeyboard.addEventListener("touchstart", function(e){k.handleTouchStart(e,k);}, false);
+	specialKeyboard.addEventListener("touchend", function(e){k.handleTouchEnd(e,k);}, false);
 	keyboardArea.appendChild(specialKeyboard);
 	
 	var mainKeyboard = this.keyboards[KEYBOARD.MAIN] = document.createElement("div");
 	mainKeyboard.classList.add("mainKeyboard");
-	mainKeyboard.onclick = function(e){
-		if(e.target == mainKeyboard){
-			if(e.clientX < (pageSizeX/2)){
-				k.selectKeyboard((KEYBOARD.MAIN > 0) ? KEYBOARD.MAIN-1 : KEYBOARD.MAIN);
-			}
-			else {
-				k.selectKeyboard((KEYBOARD.MAIN < 2) ? KEYBOARD.MAIN+1 : KEYBOARD.MAIN);
-			}
-		}
-	}
+	mainKeyboard.addEventListener("touchstart", function(e){k.handleTouchStart(e,k);}, false);
+	mainKeyboard.addEventListener("touchend", function(e){k.handleTouchEnd(e,k);}, false);
+	var buttonBox = document.createElement("div");
+	mainKeyboard.classList.add("buttonBox");
+	mainKeyboard.appendChild(buttonBox);
 	keyboardArea.appendChild(mainKeyboard);
 	
 	var joystickKeyboard = this.keyboards[KEYBOARD.JOYSTICK] = document.createElement("div");
 	joystickKeyboard.classList.add("joystickKeyboard");
-	joystickKeyboard.onclick = function(e){
-		if(e.target == joystickKeyboard){
-			if(e.clientX < (pageSizeX/2)){
-				k.selectKeyboard((KEYBOARD.JOYSTICK > 0) ? KEYBOARD.JOYSTICK-1 : KEYBOARD.JOYSTICK);
-			}
-			else {
-				k.selectKeyboard((KEYBOARD.JOYSTICK < 2) ? KEYBOARD.JOYSTICK+1 : KEYBOARD.JOYSTICK);
-			}
-		}
-	}
+	joystickKeyboard.addEventListener("touchstart", function(e){k.handleTouchStart(e,k);}, false);
+	joystickKeyboard.addEventListener("touchend", function(e){k.handleTouchEnd(e,k);}, false);
 	keyboardArea.appendChild(joystickKeyboard);
 	
 	//var buttonsSchemat = this.buttonsSchemat = [];
@@ -70,6 +53,31 @@ function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor){
 	//this.replanKeyboardButtons(KEYBOARD.SPECIAL);
 	
 	this.refreshKeyboardsElement();
+
+}
+
+Keyboard.prototype.handleTouchStart = function(e, k){
+	if(k.touchInfo.started)return;
+	k.touchInfo.started = true;
+	k.touchInfo.startX = e.targetTouches[0].screenX;
+	k.touchInfo.startY = e.targetTouches[0].screenY;
+	k.touchInfo.startTime = new Date().getTime();
+}
+
+Keyboard.prototype.handleTouchEnd = function(e, k){
+	if(!k.touchInfo.started)return;
+	k.touchInfo.started = false;
+	k.touchInfo.endX = e.changedTouches[0].screenX;
+	k.touchInfo.endY = e.changedTouches[0].screenY;
+	k.touchInfo.endTime = new Date().getTime();
+	var moveX = k.touchInfo.moveX = k.touchInfo.endX - k.touchInfo.startX;
+	var moveY = k.touchInfo.moveY = k.touchInfo.endX - k.touchInfo.startY;
+	var time = k.touchInfo.time = k.touchInfo.endTime - k.touchInfo.startTime;
+	var speedX = moveX/time;
+	k.touchInfo.speedX = speedX;
+	if(Math.abs(speedX) > 1.0){
+		if(k.keyboards[k.selectedKeyboard + ((speedX >= 0) ? -1 : 1)])k.selectKeyboard(k.selectedKeyboard + ((speedX >= 0) ? -1 : 1));  
+	}
 }
 
 Keyboard.prototype.replanKeyboardButtons = function(k){
@@ -94,14 +102,16 @@ Keyboard.prototype.replanKeyboardButtons = function(k){
 		//button.style.fontSize = charSize + "px";
 		button.style.verticalAlign = "middle";
 		button.style.lineHeight = ((data[i].endY-data[i].startY)*unitY) + "px";
+		var t = this;
 		if(data[i].type == "normal"){
-			button.innerHTML = data[i].value;
 			button.code = data[i].value;
+			button.scode = (data[i].svalue) ? data[i].svalue:data[i].value.toUpperCase();
 			button.onclick = function(e){
-				editor.write(this.code);
+				editor.write((t.shift) ? this.scode : this.code);
 			}
+			button.innerHTML = data[i].value;
 		}
-		keyboard.appendChild(button);
+		keyboard.children[0].appendChild(button);
 	}
 	
 	
