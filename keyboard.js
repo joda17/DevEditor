@@ -3,13 +3,16 @@ KEYBOARD.MAIN = 1;
 KEYBOARD.JOYSTICK = 2;
 KEYBOARD.SPECIAL = 0;
 
+var BUTTONSSCHEMAT = {};
+BUTTONSSCHEMAT[KEYBOARD.MAIN] = {info: {maxX: 10,maxY: 3}, data:[{type:"normal",value:'q',startX:0,endX:1,startY:0,endY:1},{type:"normal",value:'w',startX:1,endX:2,startY:0,endY:1},{type:"normal",value:'e',startX:2,endX:3,startY:0,endY:1},{type:"normal",value:'r',startX:3,endX:4,startY:0,endY:1},{type:"normal",value:'t',startX:4,endX:5,startY:0,endY:1}]};
+
 function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor){
 	this.keyboardSize = {x: pageSizeX, y: 2*(pageSizeY/5)};
 	this.editor = editor;
 	this.selectedKeyboard = KEYBOARD.MAIN;
 	this.keyboardArea = keyboardArea;
 	this.keyboards = [];
-	this.buttons = [];
+	//this.buttons = [];
 	keyboardArea.style.height = this.keyboardSize.y + "px";
 	keyboardArea.style.width = this.keyboardSize.x + "px";
 	
@@ -57,29 +60,64 @@ function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor){
 	}
 	keyboardArea.appendChild(joystickKeyboard);
 	
-	var buttonsSchemat = this.buttonsSchemat = [];
+	//var buttonsSchemat = this.buttonsSchemat = [];
 	
-	buttonsSchemat[KEYBOARD.MAIN] = "[q][w][e][r][t][y][u][i][o][p]/[a][s][d][f][g][h][j][k][l]";
-	buttonsSchemat[KEYBOARD.SPECIAL] = "[qwe][wer][ert][rty][tyu]/[<][>][[}]/[[[]/[[]]";
-	buttonsSchemat[KEYBOARD.JOYSTICK] = "[JOYSTICK]";
+	//buttonsSchemat[KEYBOARD.MAIN] = "[q;0;1;0;1][w;1;2;0;1][e;2;3;0;1][r;4;5;0;1][t;5;6;0;1][y;6;7;0;1][u;7;8;0;1][i;8;9;0;1][o;10;1][p;1;1]/[a;1;2][s;1;2][d;2;2][f;2;2][g;2;2][h;2;2][j;2;2][k;1;2][l;1;2]";
+	//buttonsSchemat[KEYBOARD.SPECIAL] = "[qwe][wer][ert][rty][tyu]/[<][>][[}]/[[[]/[[]]";
+	//buttonsSchemat[KEYBOARD.JOYSTICK] = "[JOYSTICK]";
 	
 	this.replanKeyboardButtons(KEYBOARD.MAIN);
-	this.replanKeyboardButtons(KEYBOARD.SPECIAL);
+	//this.replanKeyboardButtons(KEYBOARD.SPECIAL);
 	
 	this.refreshKeyboardsElement();
 }
 
 Keyboard.prototype.replanKeyboardButtons = function(k){
-
 	var keyboard = this.keyboards[k];
+	
+	var schemat = BUTTONSSCHEMAT[k];
+	var unitX = this.keyboardSize.x/schemat.info.maxX;
+	var unitY = this.keyboardSize.y/schemat.info.maxY;
+	console.log("ux: " + unitX + " uy: " + unitY)
+	var data = schemat.data;
+	var editor = this.editor;
+	for(var i in data) {
+		var button = document.createElement("div");
+		button.style.position = "absolute";
+		button.style.top = (data[i].startY*unitY) + "px";
+		button.style.left = (data[i].startX*unitX) + "px";
+		button.style.border = "solid black 1px";
+		button.style.width = ((data[i].endX-data[i].startX)*unitX) + "px";
+		button.style.height = ((data[i].endY-data[i].startY)*unitY) + "px";
+		button.style.textAlign = "center";
+		button.style.color = "white";
+		//button.style.fontSize = charSize + "px";
+		button.style.verticalAlign = "middle";
+		button.style.lineHeight = ((data[i].endY-data[i].startY)*unitY) + "px";
+		if(data[i].type == "normal"){
+			button.innerHTML = data[i].value;
+			button.code = data[i].value;
+			button.onclick = function(e){
+				editor.write(this.code);
+			}
+		}
+		keyboard.appendChild(button);
+	}
+	
+	
+	/*
 	for(var i in this.buttons[k]){
 		keyboard.removeChild(this.buttons[k][i].element);
 	}
 	this.buttons[k] = [];
 	var sizeX = this.keyboardSize.x;
 	var sizeY = this.keyboardSize.y;
-	var schemat = this.buttonsSchemat[k];
+	*/
 	
+	//var schemat = this.buttonsSchemat[k];
+	
+	
+	/*
 	var buttons = [[]];
 	
 	var lock = false;
@@ -130,6 +168,9 @@ Keyboard.prototype.replanKeyboardButtons = function(k){
 			charsAmount[i] += buttons[i][j].code.length;
 		}
 		var calcPaddingHorizontal = (sizeX - (charsAmount[i]*charSize))/(2*buttons[i].length);
+		console.log("level: " + i + "cph " + calcPaddingHorizontal);
+		console.log("cs: " + charSize + "  ca: " + charsAmount[i]);
+		console.log("ca*cs: " + charsAmount[i]*charSize );
 		paddingHorizontal = Math.min(calcPaddingHorizontal, paddingHorizontal);
 	}
 	var levelsSize = [];
@@ -137,13 +178,15 @@ Keyboard.prototype.replanKeyboardButtons = function(k){
 	for(var i = 0;i < level+1;i++){
 		levelsSize[i] = (charsAmount[i]*charSize) + (paddingHorizontal*2*buttons[i].length);
 		console.log("ls: " + levelsSize[i]);
+		console.log("but: " + buttons[i].length);
+		console.log("ph: " + paddingHorizontal);
 		marginsLeft[i] = (sizeX - levelsSize[i])/2;
 	}
 	for(var i = 0;i < level+1;i++){
 		console.log("ml: " + marginsLeft);
 		var fromLeft = marginsLeft[i];
 		for(var j = 0;j < buttons[i].length;j++){
-			var width = (buttons[i][j].code.length*charSize) + (2*paddingHorizontal)
+			var width = (buttons[i][j].code.length*charSize) + (2*paddingHorizontal);
 			var button = document.createElement("div");
 			button.style.position = "absolute";
 			button.style.top = i*buttonHeight + "px";
@@ -153,6 +196,7 @@ Keyboard.prototype.replanKeyboardButtons = function(k){
 			button.style.height = buttonHeight + "px";
 			button.style.textAlign = "center";
 			button.style.color = "white";
+			button.style.fontSize = charSize + "px";
 			button.style.verticalAlign = "middle";
 			button.style.lineHeight = buttonHeight + "px";
 			button.innerHTML = buttons[i][j].code;
@@ -166,7 +210,7 @@ Keyboard.prototype.replanKeyboardButtons = function(k){
 			keyboard.appendChild(button);
 			fromLeft += width;
 		}
-	}
+	}*/
 	
 }
 
