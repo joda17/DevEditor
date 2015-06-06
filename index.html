@@ -14,9 +14,11 @@
 			}
 			div.selectedRow { 
 				background-color: #D5E1FF;
-				box-shadow: 0 0 5px #D5E1FF;
+				box-shadow: 0 0 6px #D5E1FF;
 				font-size: 27px;
 				height: 31px;
+				position: relative;//For z-index
+				z-index: 2;
 			}
 			span.cursor {
 				animation: cursor steps(1) 1.5s infinite;
@@ -26,20 +28,17 @@
 				65% { opacity: 0.0; }
 				100% { opacity: 1.0; }
 			}
-			#editor {
+			div.editor {
 				overflow-x: auto;
 				overflow-y: auto;
 				padding-bottom: 5px;
 				width: 100%;
 			}
-			#keyboard {
+			div.keyboard {
 				position: fixed;
 				bottom: 0;
 				z-index: 2;
 				background-color: grey;
-			}
-			#keybard-bottom-margin {
-				width: 100%;
 			}
 			div.mainKeyboard {
 				width: 100%;
@@ -81,20 +80,33 @@
 				0% { right: 100%; }
 				100% { right: 0%; }
 			}
+			div.editArea {
+				font-size:20px;
+				display: inline-block;
+			}
 		</style>
 		<script type="text/javascript" src="editor.js"></script>
 		<script type="text/javascript" src="keyboard.js"></script>
 	</head>
-	<body style="margin:0;padding:0;border:0;">
-		<div id="editor"><div id="editArea" style="font-size:20px;display: inline-block;"></div></div>
-		<div id="keyboard"></div>
-		<div id="keyboard-bottom-margin"><div>
+	<body style="margin:0;padding:0;border:0;" id="body">
+		<!--<div class="editor"><div id="editArea" style="font-size:20px;display: inline-block;"></div></div>
+		<div class="keyboard"></div>-->
 	</body>
 </html>
 <script>
-	var editor = new Editor(document.getElementById("editArea"), 10,document.body.clientWidth, document.body.clientHeight);
+	var editorElement = document.createElement("div");
+	editorElement.classList.add("editor");
+	var editArea = document.createElement("div");
+	editArea.classList.add("editArea");
+	editorElement.appendChild(editArea);
+	document.getElementById("body").appendChild(editorElement);
+	var editor = new Editor(editArea, 10,document.body.clientWidth, document.body.clientHeight);
 	
-	var keyboard = new Keyboard(document.body.clientWidth, document.body.clientHeight, document.getElementById("keyboard"), editor, document.getElementById("keyboard-bottom-margin"));
+	
+	var keyboardElement = document.createElement("div");
+	keyboardElement.classList.add("keyboard");
+	document.getElementById("body").appendChild(keyboardElement);
+	var keyboard = new Keyboard(document.body.clientWidth, document.body.clientHeight, keyboardElement, editor);
 	
 	/*
 	//keyboard

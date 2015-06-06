@@ -4,17 +4,15 @@ KEYBOARD.JOYSTICK = 2;
 KEYBOARD.SPECIAL = 0;
 
 var BUTTONSSCHEMAT = {};
-BUTTONSSCHEMAT[KEYBOARD.MAIN] = {info: {maxX: 5,maxY: 5}, data:[
-{type:"normal",value:'q',startX:0,endX:1,startY:1,endY:2},{type:"normal",value:'w',startX:1,endX:2,startY:1,endY:2},{type:"normal",value:'e',startX:2,endX:3,startY:1,endY:2},{type:"normal",value:'r',startX:3,endX:4,startY:1,endY:2},{type:"normal",value:'t',startX:4,endX:5,startY:1,endY:2},{type:"normal",value:'y',startX:5,endX:6,startY:1,endY:2},{type:"normal",value:'u',startX:6,endX:7,startY:1,endY:2},{type:"normal",value:'i',startX:7,endX:8,startY:1,endY:2},{type:"normal",value:'o',startX:8,endX:9,startY:1,endY:2},{type:"normal",value:'p',startX:9,endX:10,startY:1,endY:2},{type:"normal",value:'1',svalue:'!',startX:0,endX:1,startY:0,endY:1},{type:"normal",value:'2',svalue:'+',startX:1,endX:2,startY:0,endY:1},{type:"normal",value:'3',svalue:'-',startX:2,endX:3,startY:0,endY:1},{type:"normal",value:'4',svalue:'*',startX:3,endX:4,startY:0,endY:1},{type:"normal",value:'5',svalue:'/',startX:4,endX:5,startY:0,endY:1},{type:"normal",value:'6',svalue:'=',startX:5,endX:6,startY:0,endY:1},{type:"normal",value:'7',svalue:'^',startX:6,endX:7,startY:0,endY:1},{type:"normal",value:'8',svalue:'%',startX:7,endX:8,startY:0,endY:1},{type:"normal",value:'9',svalue:'~',startX:8,endX:9,startY:0,endY:1},{type:"normal",value:'0',svalue:'\\',startX:9,endX:10,startY:0,endY:1},{type:"normal",value:'	',display:'TAB', startX:0,endX:1,startY:2,endY:3},{type:"normal",value:'a',startX:1,endX:2,startY:2,endY:3},{type:"normal",value:'s',startX:2,endX:3,startY:2,endY:3},{type:"normal",value:'d',startX:3,endX:4,startY:2,endY:3},{type:"normal",value:'f',startX:4,endX:5,startY:2,endY:3},{type:"normal",value:'g',startX:5,endX:6,startY:2,endY:3},{type:"normal",value:'h',startX:6,endX:7,startY:2,endY:3},{type:"normal",value:'j',startX:7,endX:8,startY:2,endY:3},{type:"normal",value:'k',startX:8,endX:9,startY:2,endY:3},{type:"normal",value:'l',startX:9,endX:10,startY:2,endY:3},{type:"special",value:'↑',svalue:"<b style='color: blue;'>↑</b>",ssvalue:"<b style='color: green;'>↑</b>",startX:0,endX:1,startY:3,endY:4,keepShift: true, onclick: function(e, k){k.shift=(k.shift+1)%3;k.refreshKeyboardsElement();}},{type:"normal",value:'z',startX:1,endX:2,startY:3,endY:4},{type:"normal",value:'x',startX:2,endX:3,startY:3,endY:4},{type:"normal",value:'c',startX:3,endX:4,startY:3,endY:4},{type:"normal",value:'v',startX:4,endX:5,startY:3,endY:4},{type:"normal",value:'b',startX:5,endX:6,startY:3,endY:4},{type:"normal",value:'n',startX:6,endX:7,startY:3,endY:4},{type:"normal",value:'m',startX:7,endX:8,startY:3,endY:4},{type:"normal",value:'"', svalue: "'",startX:8,endX:9,startY:3,endY:4},{type:"special",value:'←',startX:9,endX:10,startY:3,endY:4, onclick: function(e, k){k.editor.callBackspaceEvent();}},{type:"normal",value:'(',svalue: ')', startX:0,endX:1,startY:4,endY:5},{type:"normal",value:'{',svalue: '}', startX:1,endX:2,startY:4,endY:5},{type:"normal",value:'[',svalue: ']', startX:2,endX:3,startY:4,endY:5},{type:"normal",value:' ', startX:3,endX:6,startY:4,endY:5},{type:"normal",value:';',svalue: ':', startX:6,endX:7,startY:4,endY:5},{type:"normal",value:'.',svalue: ',', startX:7,endX:8,startY:4,endY:5},{type:"special",value:'↲',startX:8,endX:10,startY:4,endY:5, onclick: function(e, k){k.editor.callEnterEvent();}}
+BUTTONSSCHEMAT[KEYBOARD.MAIN] = {info: {maxX: 10,maxY: 5}, data:[
+{type:"normal",value:'q',startX:0,endX:1,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'w',startX:1,endX:2,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'e',startX:2,endX:3,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'r',startX:3,endX:4,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'t',startX:4,endX:5,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'y',startX:5,endX:6,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'u',startX:6,endX:7,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'i',startX:7,endX:8,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'o',startX:8,endX:9,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'p',startX:9,endX:10,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'1',svalue:'!',startX:0,endX:1,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'2',svalue:'+',startX:1,endX:2,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'3',svalue:'-',startX:2,endX:3,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'4',svalue:'*',startX:3,endX:4,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'5',svalue:'/',startX:4,endX:5,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'6',svalue:'=',startX:5,endX:6,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'7',svalue:'^',startX:6,endX:7,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'8',svalue:'%',startX:7,endX:8,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'9',svalue:'<',startX:8,endX:9,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'0',svalue:'>',startX:9,endX:10,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'	',display:'TAB',sdisplay:'TAB',ssdisplay:'TAB', startX:0,endX:1,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'a',startX:1,endX:2,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'s',startX:2,endX:3,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'d',startX:3,endX:4,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'f',startX:4,endX:5,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'g',startX:5,endX:6,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'h',startX:6,endX:7,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'j',startX:7,endX:8,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'k',startX:8,endX:9,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'l',startX:9,endX:10,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'"',svalue:"'",startX:0,endX:1,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'z',startX:1,endX:2,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'x',startX:2,endX:3,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'c',startX:3,endX:4,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'v',startX:4,endX:5,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'b',startX:5,endX:6,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'n',startX:6,endX:7,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'m',startX:7,endX:8,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"special",value:'←',startX:8,endX:10,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7", onclick: function(e, k){k.editor.callBackspaceEvent();}},{type:"normal",value:'(',svalue: ')', startX:0,endX:1,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"normal",value:'{',svalue: '}', startX:1,endX:2,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"normal",value:'[',svalue: ']', startX:2,endX:3,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"normal",value:' ', startX:3,endX:6,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"normal",value:';',svalue: ':', startX:6,endX:7,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"normal",value:'.',svalue: ',', startX:7,endX:8,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"special",value:'↲',startX:8,endX:10,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF", onclick: function(e, k){k.editor.callEnterEvent();}}
 ]}
 
-function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor, bottomMargin){
+function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor){
 	this.log = [];
 	this.log.push("Keyboard start");
 	this.shift = 0;
 	this.keyboardSize = {x: pageSizeX, y: 2*(pageSizeY/5)};
-	this.bottomMargin = bottomMargin;
-	//bottomMargin.style.height = this.keyboardSize.y;
 	this.editor = editor;
 	this.selectedKeyboard = KEYBOARD.MAIN;
 	this.keyboardArea = keyboardArea;
@@ -46,14 +44,6 @@ function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor, bottomMargin){
 	joystickKeyboard.addEventListener("touchend", function(e){k.handleTouchEnd(e,k);}, false);
 	keyboardArea.appendChild(joystickKeyboard);
 	
-	//var buttonsSchemat = this.buttonsSchemat = [];
-	
-	//buttonsSchemat[KEYBOARD.MAIN] = "[q;0;1;0;1][w;1;2;0;1][e;2;3;0;1][r;4;5;0;1][t;5;6;0;1][y;6;7;0;1][u;7;8;0;1][i;8;9;0;1][o;10;1][p;1;1]/[a;1;2][s;1;2][d;2;2][f;2;2][g;2;2][h;2;2][j;2;2][k;1;2][l;1;2]";
-	//buttonsSchemat[KEYBOARD.SPECIAL] = "[qwe][wer][ert][rty][tyu]/[<][>][[}]/[[[]/[[]]";
-	//buttonsSchemat[KEYBOARD.JOYSTICK] = "[JOYSTICK]";
-	
-
-	//this.replanKeyboardButtons(KEYBOARD.SPECIAL);
 	
 	this.refreshKeyboardsElement();
 
@@ -92,6 +82,21 @@ Keyboard.prototype.handleTouchEnd = function(e, k){
 	}
 }
 
+Keyboard.prototype.renameKeyboardButtons = function(k){
+	var keyboard = this.keyboards[k];
+	var buttonBox = keyboard.children[0];
+	
+	for(var i in buttonBox.children) {
+		var b = buttonBox.children[i];
+		if(b.classList.contains("buttonVr"))continue;
+		var level = [];
+		level[0] = (b.display) ? b.display:b.code;
+		level[1] = (b.sdisplay) ? b.sdisplay:((b.scode) ? b.scode:level[0]);
+		level[2] = (b.ssdisplay) ? b.ssdisplay:((b.sscode) ? b.sscode:level[1]);
+		b.innerHTML = level[this.shift];
+	}
+}
+
 Keyboard.prototype.replanKeyboardButtons = function(k){
 	var keyboard = this.keyboards[k];
 	var buttonBox = keyboard.children[0];
@@ -110,59 +115,68 @@ Keyboard.prototype.replanKeyboardButtons = function(k){
 		button.style.position = "absolute";
 		button.style.top = (data[i].startY*unitY) + "px";
 		button.style.left = (data[i].startX*unitX) + "px";
-		button.style.border = "solid black 1px";
+		//button.style.borderLeft = "solid black 1px";
 		button.style.width = ((data[i].endX-data[i].startX)*unitX) + "px";
 		button.style.height = ((data[i].endY-data[i].startY)*unitY) + "px";
 		button.style.textAlign = "center";
-		button.style.color = "white";
+		button.style.color = (data[i].fcolor) ? data[i].fcolor:"white";
 		//button.style.fontSize = charSize + "px";
 		button.style.verticalAlign = "middle";
 		button.style.lineHeight = ((data[i].endY-data[i].startY)*unitY) + "px";
+		button.color = (data[i].color) ? data[i].color:"";
+		button.style.backgroundColor = button.color;
+		button.style.fontWeight = "600";
+		button.style.boxShadow = "0 0 2px " + button.color + ", inset -3px 0 4px -4px white" + ", inset 3px 0 4px -4px white";
 		var t = this;
 		if(data[i].type == "normal"){
 			button.code = data[i].value;
 			button.scode = (data[i].svalue) ? data[i].svalue:data[i].value.toUpperCase();
 			button.sscode = (data[i].ssvalue) ? data[i].ssvalue:button.scode;
+			if(data[i].display)button.display = data[i].display;
+			if(data[i].sdisplay)button.sdisplay = data[i].sdisplay;
+			if(data[i].ssdisplay)button.ssdisplay = data[i].ssdisplay;
 			button.keepShift = (data[i].keepShift) ? true : false;
 			button.onclick = function(e){
-				this.style.backgroundColor = "#D5E1FF";
-				var b = this
+				var b = this;
+				b.style.backgroundColor = "#D5E1FF";
 				setTimeout(function(){
-					b.style.backgroundColor = "";
+					b.style.backgroundColor = b.color;
 				}, 300);
 				editor.write((t.shift > 0) ? this.scode : this.code);
 				if(t.shift == 1 && !this.keepShift){
 					t.shift = 0;
-					t.refreshKeyboardsElement();
+					t.renameKeyboardButtons(k);
 				}
 			}
-			button.innerHTML = (data[i].display) ? data[i].display : ((t.shift == 2) ? button.sscode : ((t.shift > 0) ? button.scode : button.code));
+			//button.innerHTML = (data[i].display) ? data[i].display : ((t.shift == 2) ? button.sscode : ((t.shift > 0) ? button.scode : button.code));
 		}
 		else if(data[i].type == "special"){
+			if(data[i].display)button.display = data[i].display;
+			if(data[i].sdisplay)button.sdisplay = data[i].sdisplay;
+			if(data[i].ssdisplay)button.ssdisplay = data[i].ssdisplay;
 			button.code = data[i].value;
 			button.scode = (data[i].svalue) ? data[i].svalue:data[i].value.toUpperCase();
 			button.sscode = (data[i].ssvalue) ? data[i].ssvalue:button.scode;
 			button.s = data[i];
 			button.keepShift = (data[i].keepShift) ? true : false;
 			button.onclick = function(e){
+				var b = this;
 				this.style.backgroundColor = "#D5E1FF";
-				var b = this
 				setTimeout(function(){
-					b.style.backgroundColor = "";
+					b.style.backgroundColor = b.color;
 				}, 300);
 				this.s.onclick(e,t);
 				if(t.shift == 1 && !this.keepShift){
 					t.shift = 0;
-					t.refreshKeyboardsElement();
+					t.renameKeyboardButtons(k);
 				}
 			};
-			button.innerHTML = (data[i].display) ? data[i].display : ((t.shift == 2) ? button.sscode : ((t.shift > 0) ? button.scode : button.code));
+			//button.innerHTML = (data[i].display) ? data[i].display : ((t.shift == 2) ? button.sscode : ((t.shift > 0) ? button.scode : button.code));
 		}
-		else {
-			console.log(data[i].type);
-		}
+
 		keyboard.children[0].appendChild(button);
-	}	
+	}
+	this.renameKeyboardButtons(k);
 }
 
 Keyboard.prototype.refreshKeyboardsElement = function(){

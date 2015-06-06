@@ -32,7 +32,6 @@ Editor.prototype.callClickedRowEvent = function(id, x, y){
 Editor.prototype.selectRow = function(id){
 	for(var i in this.rows){
 		if(i!=id)this.rows[i].classList.remove("selectedRow");
-		if(i!=id)this.numberRows[i].classList.remove("selectedNumberRow");
 	}
 	this.rows[id].classList.add("selectedRow");
 }
