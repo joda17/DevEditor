@@ -4,14 +4,17 @@ KEYBOARD.JOYSTICK = 2;
 KEYBOARD.SPECIAL = 0;
 
 var BUTTONSSCHEMAT = {};
-BUTTONSSCHEMAT[KEYBOARD.MAIN] = {info: {maxX: 8,maxY: 5}, data:[
-{type:"normal",value:'q',startX:0,endX:1,startY:1,endY:2},{type:"normal",value:'w',startX:1,endX:2,startY:1,endY:2},{type:"normal",value:'e',startX:2,endX:3,startY:1,endY:2},{type:"normal",value:'r',startX:3,endX:4,startY:1,endY:2},{type:"normal",value:'t',startX:4,endX:5,startY:1,endY:2},{type:"normal",value:'y',startX:5,endX:6,startY:1,endY:2},{type:"normal",value:'u',startX:6,endX:7,startY:1,endY:2},{type:"normal",value:'i',startX:7,endX:8,startY:1,endY:2},{type:"normal",value:'o',startX:8,endX:9,startY:1,endY:2},{type:"normal",value:'p',startX:9,endX:10,startY:1,endY:2},{type:"normal",value:'1',svalue:'!',startX:0,endX:1,startY:0,endY:1},{type:"normal",value:'2',svalue:'+',startX:1,endX:2,startY:0,endY:1},{type:"normal",value:'3',svalue:'-',startX:2,endX:3,startY:0,endY:1},{type:"normal",value:'4',svalue:'*',startX:3,endX:4,startY:0,endY:1},{type:"normal",value:'5',svalue:'/',startX:4,endX:5,startY:0,endY:1},{type:"normal",value:'6',svalue:'=',startX:5,endX:6,startY:0,endY:1},{type:"normal",value:'7',svalue:'^',startX:6,endX:7,startY:0,endY:1},{type:"normal",value:'8',svalue:'%',startX:7,endX:8,startY:0,endY:1},{type:"normal",value:'9',svalue:'~',startX:8,endX:9,startY:0,endY:1},{type:"normal",value:'0',svalue:'\\',startX:9,endX:10,startY:0,endY:1},
-{type:"normal",value:'↑',startX:0,endX:1,startY:2,endY:3},{type:"normal",value:'a',startX:1,endX:2,startY:2,endY:3},{type:"normal",value:'s',startX:2,endX:3,startY:2,endY:3},{type:"normal",value:'d',startX:3,endX:4,startY:2,endY:3},{type:"normal",value:'f',startX:4,endX:5,startY:2,endY:3},{type:"normal",value:'g',startX:5,endX:6,startY:2,endY:3},{type:"normal",value:'h',startX:6,endX:7,startY:2,endY:3},{type:"normal",value:'j',startX:7,endX:8,startY:2,endY:3},{type:"normal",value:'k',startX:8,endX:9,startY:2,endY:3},{type:"normal",value:'l',startX:9,endX:10,startY:2,endY:3}
-]};
+BUTTONSSCHEMAT[KEYBOARD.MAIN] = {info: {maxX: 5,maxY: 5}, data:[
+{type:"normal",value:'q',startX:0,endX:1,startY:1,endY:2},{type:"normal",value:'w',startX:1,endX:2,startY:1,endY:2},{type:"normal",value:'e',startX:2,endX:3,startY:1,endY:2},{type:"normal",value:'r',startX:3,endX:4,startY:1,endY:2},{type:"normal",value:'t',startX:4,endX:5,startY:1,endY:2},{type:"normal",value:'y',startX:5,endX:6,startY:1,endY:2},{type:"normal",value:'u',startX:6,endX:7,startY:1,endY:2},{type:"normal",value:'i',startX:7,endX:8,startY:1,endY:2},{type:"normal",value:'o',startX:8,endX:9,startY:1,endY:2},{type:"normal",value:'p',startX:9,endX:10,startY:1,endY:2},{type:"normal",value:'1',svalue:'!',startX:0,endX:1,startY:0,endY:1},{type:"normal",value:'2',svalue:'+',startX:1,endX:2,startY:0,endY:1},{type:"normal",value:'3',svalue:'-',startX:2,endX:3,startY:0,endY:1},{type:"normal",value:'4',svalue:'*',startX:3,endX:4,startY:0,endY:1},{type:"normal",value:'5',svalue:'/',startX:4,endX:5,startY:0,endY:1},{type:"normal",value:'6',svalue:'=',startX:5,endX:6,startY:0,endY:1},{type:"normal",value:'7',svalue:'^',startX:6,endX:7,startY:0,endY:1},{type:"normal",value:'8',svalue:'%',startX:7,endX:8,startY:0,endY:1},{type:"normal",value:'9',svalue:'~',startX:8,endX:9,startY:0,endY:1},{type:"normal",value:'0',svalue:'\\',startX:9,endX:10,startY:0,endY:1},{type:"normal",value:'	',display:'TAB', startX:0,endX:1,startY:2,endY:3},{type:"normal",value:'a',startX:1,endX:2,startY:2,endY:3},{type:"normal",value:'s',startX:2,endX:3,startY:2,endY:3},{type:"normal",value:'d',startX:3,endX:4,startY:2,endY:3},{type:"normal",value:'f',startX:4,endX:5,startY:2,endY:3},{type:"normal",value:'g',startX:5,endX:6,startY:2,endY:3},{type:"normal",value:'h',startX:6,endX:7,startY:2,endY:3},{type:"normal",value:'j',startX:7,endX:8,startY:2,endY:3},{type:"normal",value:'k',startX:8,endX:9,startY:2,endY:3},{type:"normal",value:'l',startX:9,endX:10,startY:2,endY:3},{type:"special",value:'↑',svalue:"<b style='color: blue;'>↑</b>",ssvalue:"<b style='color: green;'>↑</b>",startX:0,endX:1,startY:3,endY:4,keepShift: true, onclick: function(e, k){k.shift=(k.shift+1)%3;k.refreshKeyboardsElement();}},{type:"normal",value:'z',startX:1,endX:2,startY:3,endY:4},{type:"normal",value:'x',startX:2,endX:3,startY:3,endY:4},{type:"normal",value:'c',startX:3,endX:4,startY:3,endY:4},{type:"normal",value:'v',startX:4,endX:5,startY:3,endY:4},{type:"normal",value:'b',startX:5,endX:6,startY:3,endY:4},{type:"normal",value:'n',startX:6,endX:7,startY:3,endY:4},{type:"normal",value:'m',startX:7,endX:8,startY:3,endY:4},{type:"normal",value:'"', svalue: "'",startX:8,endX:9,startY:3,endY:4},{type:"special",value:'←',startX:9,endX:10,startY:3,endY:4, onclick: function(e, k){k.editor.callBackspaceEvent();}},{type:"normal",value:'(',svalue: ')', startX:0,endX:1,startY:4,endY:5},{type:"normal",value:'{',svalue: '}', startX:1,endX:2,startY:4,endY:5},{type:"normal",value:'[',svalue: ']', startX:2,endX:3,startY:4,endY:5},{type:"normal",value:' ', startX:3,endX:6,startY:4,endY:5},{type:"normal",value:';',svalue: ':', startX:6,endX:7,startY:4,endY:5},{type:"normal",value:'.',svalue: ',', startX:7,endX:8,startY:4,endY:5},{type:"special",value:'↲',startX:8,endX:10,startY:4,endY:5, onclick: function(e, k){k.editor.callEnterEvent();}}
+]}
 
-function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor){
-	this.shift = false;
+function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor, bottomMargin){
+	this.log = [];
+	this.log.push("Keyboard start");
+	this.shift = 0;
 	this.keyboardSize = {x: pageSizeX, y: 2*(pageSizeY/5)};
+	this.bottomMargin = bottomMargin;
+	//bottomMargin.style.height = this.keyboardSize.y;
 	this.editor = editor;
 	this.selectedKeyboard = KEYBOARD.MAIN;
 	this.keyboardArea = keyboardArea;
@@ -49,7 +52,7 @@ function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor){
 	//buttonsSchemat[KEYBOARD.SPECIAL] = "[qwe][wer][ert][rty][tyu]/[<][>][[}]/[[[]/[[]]";
 	//buttonsSchemat[KEYBOARD.JOYSTICK] = "[JOYSTICK]";
 	
-	this.replanKeyboardButtons(KEYBOARD.MAIN);
+
 	//this.replanKeyboardButtons(KEYBOARD.SPECIAL);
 	
 	this.refreshKeyboardsElement();
@@ -71,22 +74,35 @@ Keyboard.prototype.handleTouchEnd = function(e, k){
 	k.touchInfo.endY = e.changedTouches[0].screenY;
 	k.touchInfo.endTime = new Date().getTime();
 	var moveX = k.touchInfo.moveX = k.touchInfo.endX - k.touchInfo.startX;
-	var moveY = k.touchInfo.moveY = k.touchInfo.endX - k.touchInfo.startY;
+	var moveY = k.touchInfo.moveY = k.touchInfo.endY - k.touchInfo.startY;
 	var time = k.touchInfo.time = k.touchInfo.endTime - k.touchInfo.startTime;
-	var speedX = moveX/time;
-	k.touchInfo.speedX = speedX;
-	if(Math.abs(speedX) > 1.0){
+	var speedX = k.touchInfo.speedX = moveX/time;
+	var speedY = k.touchInfo.speedY = moveY/time;
+	
+	if((Math.abs(speedX) > 0.5) && (Math.abs(k.touchInfo.startX - (0.5*k.keyboardSize.x)) > 0.25*k.keyboardSize.x)){
 		if(k.keyboards[k.selectedKeyboard + ((speedX >= 0) ? -1 : 1)])k.selectKeyboard(k.selectedKeyboard + ((speedX >= 0) ? -1 : 1));  
+	}
+	else if(speedY < -0.6){
+		k.shift = (k.shift < 1) ? 1:2;
+		k.replanKeyboardButtons(k.selectedKeyboard);
+	}
+	else if(speedY > 0.6){
+		k.shift = 0;
+		k.replanKeyboardButtons(k.selectedKeyboard);
 	}
 }
 
 Keyboard.prototype.replanKeyboardButtons = function(k){
 	var keyboard = this.keyboards[k];
+	var buttonBox = keyboard.children[0];
+	
+	while (buttonBox.firstChild) {
+		buttonBox.removeChild(buttonBox.firstChild);
+	}
 	
 	var schemat = BUTTONSSCHEMAT[k];
 	var unitX = this.keyboardSize.x/schemat.info.maxX;
 	var unitY = this.keyboardSize.y/schemat.info.maxY;
-	console.log("ux: " + unitX + " uy: " + unitY)
 	var data = schemat.data;
 	var editor = this.editor;
 	for(var i in data) {
@@ -106,122 +122,47 @@ Keyboard.prototype.replanKeyboardButtons = function(k){
 		if(data[i].type == "normal"){
 			button.code = data[i].value;
 			button.scode = (data[i].svalue) ? data[i].svalue:data[i].value.toUpperCase();
+			button.sscode = (data[i].ssvalue) ? data[i].ssvalue:button.scode;
+			button.keepShift = (data[i].keepShift) ? true : false;
 			button.onclick = function(e){
-				editor.write((t.shift) ? this.scode : this.code);
+				this.style.backgroundColor = "#D5E1FF";
+				var b = this
+				setTimeout(function(){
+					b.style.backgroundColor = "";
+				}, 300);
+				editor.write((t.shift > 0) ? this.scode : this.code);
+				if(t.shift == 1 && !this.keepShift){
+					t.shift = 0;
+					t.refreshKeyboardsElement();
+				}
 			}
-			button.innerHTML = data[i].value;
+			button.innerHTML = (data[i].display) ? data[i].display : ((t.shift == 2) ? button.sscode : ((t.shift > 0) ? button.scode : button.code));
 		}
-		keyboard.children[0].appendChild(button);
-	}
-	
-	
-	/*
-	for(var i in this.buttons[k]){
-		keyboard.removeChild(this.buttons[k][i].element);
-	}
-	this.buttons[k] = [];
-	var sizeX = this.keyboardSize.x;
-	var sizeY = this.keyboardSize.y;
-	*/
-	
-	//var schemat = this.buttonsSchemat[k];
-	
-	
-	/*
-	var buttons = [[]];
-	
-	var lock = false;
-	var memory = "";
-	var level = 0;
-	var nextSpecial = false;
-	for(var i = 0;i < schemat.length;i++){
-		if(!lock){
-			if(schemat[i] == '[' || schemat[i] == '{'){
-				lock = true;
-				memory = "";
-			}
-			else if(schemat[i] == '/'){
-				level++;
-				buttons[level] = [];
-			}
+		else if(data[i].type == "special"){
+			button.code = data[i].value;
+			button.scode = (data[i].svalue) ? data[i].svalue:data[i].value.toUpperCase();
+			button.sscode = (data[i].ssvalue) ? data[i].ssvalue:button.scode;
+			button.s = data[i];
+			button.keepShift = (data[i].keepShift) ? true : false;
+			button.onclick = function(e){
+				this.style.backgroundColor = "#D5E1FF";
+				var b = this
+				setTimeout(function(){
+					b.style.backgroundColor = "";
+				}, 300);
+				this.s.onclick(e,t);
+				if(t.shift == 1 && !this.keepShift){
+					t.shift = 0;
+					t.refreshKeyboardsElement();
+				}
+			};
+			button.innerHTML = (data[i].display) ? data[i].display : ((t.shift == 2) ? button.sscode : ((t.shift > 0) ? button.scode : button.code));
 		}
 		else {
-			if(!nextSpecial){
-				if(schemat[i] == '[')nextSpecial = true;
-				else if(schemat[i] == ']'){
-					lock = false;
-					buttons[level].push({type: "normal", code: memory});
-				}
-				else if(schemat[i] == '}'){
-					lock = false;
-					buttons[level].push({type: "special", code: memory})
-				}
-				else {
-					memory += schemat[i];
-				}
-			}
-			else {
-				memory += schemat[i];
-				nextSpecial = false;
-			}
-
-		} 
-	}
-	var buttonHeight = sizeY/(level+1);
-	var paddingVertical = 5;
-	var charSize = Math.floor(buttonHeight - (2*paddingVertical));
-	var paddingHorizontal = sizeX;
-	var charsAmount = []
-	for(var i = 0;i < level+1;i++){
-		charsAmount[i] = 0;
-		for(var j = 0;j < buttons[i].length;j++){
-			charsAmount[i] += buttons[i][j].code.length;
+			console.log(data[i].type);
 		}
-		var calcPaddingHorizontal = (sizeX - (charsAmount[i]*charSize))/(2*buttons[i].length);
-		console.log("level: " + i + "cph " + calcPaddingHorizontal);
-		console.log("cs: " + charSize + "  ca: " + charsAmount[i]);
-		console.log("ca*cs: " + charsAmount[i]*charSize );
-		paddingHorizontal = Math.min(calcPaddingHorizontal, paddingHorizontal);
-	}
-	var levelsSize = [];
-	var marginsLeft = [];
-	for(var i = 0;i < level+1;i++){
-		levelsSize[i] = (charsAmount[i]*charSize) + (paddingHorizontal*2*buttons[i].length);
-		console.log("ls: " + levelsSize[i]);
-		console.log("but: " + buttons[i].length);
-		console.log("ph: " + paddingHorizontal);
-		marginsLeft[i] = (sizeX - levelsSize[i])/2;
-	}
-	for(var i = 0;i < level+1;i++){
-		console.log("ml: " + marginsLeft);
-		var fromLeft = marginsLeft[i];
-		for(var j = 0;j < buttons[i].length;j++){
-			var width = (buttons[i][j].code.length*charSize) + (2*paddingHorizontal);
-			var button = document.createElement("div");
-			button.style.position = "absolute";
-			button.style.top = i*buttonHeight + "px";
-			button.style.left = fromLeft + "px";
-			button.style.border = "solid black 1px";
-			button.style.width = width + "px";
-			button.style.height = buttonHeight + "px";
-			button.style.textAlign = "center";
-			button.style.color = "white";
-			button.style.fontSize = charSize + "px";
-			button.style.verticalAlign = "middle";
-			button.style.lineHeight = buttonHeight + "px";
-			button.innerHTML = buttons[i][j].code;
-			button.code = buttons[i][j].code;
-			var editor = this.editor;
-			button.onclick = function(e){
-				editor.write(this.code);
-			}
-			buttons[i][j].element = button;
-			this.buttons[k].push(buttons[i][j]);
-			keyboard.appendChild(button);
-			fromLeft += width;
-		}
-	}*/
-	
+		keyboard.children[0].appendChild(button);
+	}	
 }
 
 Keyboard.prototype.refreshKeyboardsElement = function(){
@@ -229,6 +170,7 @@ Keyboard.prototype.refreshKeyboardsElement = function(){
 		this.keyboards[i].style.display = "none";
 	}
 	this.keyboards[this.selectedKeyboard].style.display = "block";
+	this.replanKeyboardButtons(KEYBOARD.MAIN);
 }
 
 Keyboard.prototype.getKeyboard = function(k){

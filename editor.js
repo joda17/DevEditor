@@ -5,24 +5,17 @@ DIRECTION.DOWN = 1;
 DIRECTION.LEFT = 2;
 DIRECTION.RIGHT = 3;
 
-function Editor(editorArea, startRowsAmount){
+function Editor(editorArea, startRowsAmount,pageSizeX, pageSizeY){
 	this.editorArea = editorArea;
-	
+	editorArea.style.height = pageSizeY - (2*(pageSizeY/5)) - 5;
 	var rowsData = this.rowsData = [];
 	var rows = this.rows = [];
 	var cursor = this.cursor = [0, 0];
 	
 	for(var i = 0;i < startRowsAmount;i++){
+		this.addRow();
 		rowsData[i] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit";
-		var row = rows[i] = document.createElement("div");
-		row.innerHTML = this.formatRowData(rowsData[i], -1);
-		row.classList.add("editRow");
-		var editor = this;
-		row.rowId = i;
-		row.onclick = function(e){
-			editor.callClickedRowEvent(this.rowId, e.clientX, e.clientY);
-		}
-		editorArea.appendChild(row);
+		this.refreshRow(i);
 	}
 	
 	rows[cursor[0]].innerHTML = this.formatRowData(rowsData[cursor[0]], cursor[1]);
@@ -39,6 +32,7 @@ Editor.prototype.callClickedRowEvent = function(id, x, y){
 Editor.prototype.selectRow = function(id){
 	for(var i in this.rows){
 		if(i!=id)this.rows[i].classList.remove("selectedRow");
+		if(i!=id)this.numberRows[i].classList.remove("selectedNumberRow");
 	}
 	this.rows[id].classList.add("selectedRow");
 }
@@ -51,10 +45,12 @@ Editor.prototype.formatRowData = function(data, cursor){
 		var f = "";
 		for(var i = 0;i < formated.length;i++){
 			var char = formated[i];
-			char = char.replace(/&/gi, "&amp;");
+			char = char.replace(/&/gi, "&amp;");//must be first
 			char = char.replace(/</gi, "&lt;");
 			char = char.replace(/>/gi, "&gt;");
-			f += "<span charId='" + i + "'>" + formated[i] + "</span>"; 
+			char = char.replace(/\t/gi, '    ');
+			char = char.replace(/\s/gi, '&nbsp;');
+			f += "<span charId='" + i + "'>" + char + "</span>"; 
 		}
 		formated = f;
 	}
