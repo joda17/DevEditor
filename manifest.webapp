@@ -2,6 +2,7 @@
   "name": "DevEditor",
   "description": "Editor for developers",
   "launch_path": "/index.html",
+  "type": "certified",
   "icons": {
     "16": "/icons/icon16x16.png",
     "48": "/icons/icon48x48.png",
@@ -10,5 +11,8 @@
   },
   "developer": {
     "name": "joda17"
+  },
+  "permissions": {
+    "device-storage:sdcard":{ "access": "readwrite" }
   }
 }

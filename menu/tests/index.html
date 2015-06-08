@@ -1,0 +1,272 @@
+<html>
+	<head>
+		<style>
+			body {
+				padding: 0;
+				margin : 0;
+				border: 0;
+				background-color: rgba(0,0,0,0.08);
+				overflow-x: hidden;
+			}
+			#logo {
+				margin-top: 36px;
+				margin-left: 36px;
+			}
+			#t1 {
+				width: 300px;
+				height: 80px;
+				background-color: white;
+				box-shadow: 0 0 5px black;
+				position: absolute;
+				right: 70px;
+				top: 171px;
+				transform: rotate(35deg);
+				animation: b1 2s;
+				font-size: 30px;
+				padding-left: 30px;
+				vertical-align: middle;
+				line-height: 80px;
+				color: rgba(0,0,0,0.6);
+			}
+			#t2 {
+				width: 300px;
+				height: 80px;
+				background-color: white;
+				box-shadow: 0 0 5px black;
+				position: absolute;
+				right: 70px;
+				top: 329px;
+				transform: rotate(-35deg);
+				animation: b2 2s;
+				font-size: 30px;
+				padding-left: 30px;
+				vertical-align: middle;
+				line-height: 80px;
+				color: rgba(0,0,0,0.6);
+			}
+			#t3 {
+				width: 350px;
+				height: 80px;
+				background-color: white;
+				box-shadow: 0 0 5px black;
+				position: absolute;
+				right: 70px;
+				top: 250px;
+				transform: rotate(0deg);
+				animation: b3 2s;
+				font-size: 30px;
+				padding-left: 30px;
+				vertical-align: middle;
+				line-height: 80px;
+				color: rgba(0,0,0,0.6);
+			}
+			#circle {
+				width: 200px;
+				height: 200px;
+				border-radius: 100%;
+				background-color: white;
+				box-shadow: 0 0 5px black;
+				position: absolute;
+				right: 40px;
+				top: 190px;
+				z-index: 2;
+			}
+			@keyframes b1 {
+				0% {
+					width: 0px;
+					top: 250px;
+					font-size: 0;
+				}
+				100% {
+					width: 300px;
+					top: 171px; /*top - (((cos(r)×h) + (sin(r)×w) - h)/2)*/
+					font-size: 0;
+				}
+			}
+			@keyframes b2 {
+				0% {
+					width: 0px;
+					top: 250px;
+					font-size: 0;
+				}
+				100% {
+					width: 300px;
+					top: 329px;
+					font-size: 0;
+				}
+			}
+			@keyframes b3 {
+				0% {
+					width: 0px;
+					top: 250px;
+					font-size: 0;
+				}
+				100% {
+					width: 350px;
+					top: 250px;
+					font-size: 0;
+				}
+			}
+			@keyframes t1-off {
+				0% {
+					top: 171px;
+					width: 300px;
+					font-size: 0;
+				}
+				100% {
+					top: 250px;
+					width: 0;
+					font-size: 0;
+				}
+			}
+			@keyframes t2-off {
+				0% {
+					top: 329px;
+					width: 300px;
+					font-size: 0;
+				}
+				100% {
+					top: 250px;
+					width: 0;
+					font-size: 0;
+				}
+			}
+			@keyframes t3-off {
+				0% {
+					width: 350px;
+					font-size: 0;
+				}
+				100% {
+					width: 0;
+					font-size: 0;
+				}
+			}
+			@keyframes circle-off {
+				0% {
+					right: 40px;
+				}
+				100% {
+					right: -100%;
+				}
+			}
+			@keyframes t1-main {
+				0% {
+					top: 171px;
+					width: 300px;
+					right: 70px;
+					transform: rotate(35deg);
+				}
+				40% {
+					width: 350px;
+					top: 250px;
+					right: 70px;
+					transform: rotate(0deg);
+				}
+				70% {
+					right: 0;
+					width: calc(100% - 30px);
+					top: 250px;
+					transform: rotate(0deg);
+				}
+				100% {
+					right: 0;
+					width: calc(100% - 30px);
+					top: 0;
+					transform: rotate(0deg);
+				}
+			}
+			@keyframes t2-main {
+				0% {
+					top: 329px;
+					width: 300px;
+					right: 70px;
+					transform: rotate(-35deg);
+				}
+				40% {
+					width: 350px;
+					top: 250px;
+					right: 70px;
+					transform: rotate(0deg);
+				}
+				70% {
+					right: 0;
+					width: calc(100% - 30px);
+					top: 250px;
+					transform: rotate(0deg);
+				}
+				100% {
+					right: 0;
+					width: calc(100% - 30px);
+					top: 0;
+					transform: rotate(0deg);
+				}
+			}
+			@keyframes t3-main {
+				00% {
+					width: 350px;
+					top: 250px;
+					right: 70px;
+					transform: rotate(0deg);
+				}
+				50% {
+					right: 0;
+					width: calc(100% - 30px);
+					top: 250px;
+					transform: rotate(0deg);
+				}
+				100% {
+					right: 0;
+					width: calc(100% - 30px);
+					top: 0;
+					transform: rotate(0deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="t1">Settings</div><div id="t2">Website</div><div id="t3">Editor</div><div id="circle"><img src="icon.png" id="logo"></div>
+	</body>
+	<script>
+		var t = [];
+		t[0] = document.getElementById("t1");
+		t[1] = document.getElementById("t2");
+		t[2] = document.getElementById("t3");
+		var c = document.getElementById("circle");
+		
+		t[0].onclick = function(){
+			setMain(0);
+		}
+		t[1].onclick = function(){
+			setMain(1);
+		}
+		t[2].onclick = function(){
+			setMain(2);
+		}
+		
+		function setMain(id){
+			for(var i in t){
+				if(i!=id){
+					t[i].style.animation = "t" + (1+Number(i)) +"-off 2s 1";
+				}
+			}
+			setTimeout(function(){
+				for(var i in t){
+					if(i!=id){
+						t[i].style.display="none";
+					}
+				}
+				t[id].style.animation = "t" + (1+id) +"-main 6s 1";
+				c.style.animation = "circle-off 2s 1";
+				setTimeout(function(){
+					c.style.display = "none";
+				}, 2000);
+				setTimeout(function(){
+					t[id].style.width="calc(100% - 30px)";
+					t[id].style.top="0";
+					t[id].style.right="0";
+					t[id].style.transform="rotate(0deg)";
+				}, 6000);
+			}, 2000);
+		}
+	</script>
+</html>
