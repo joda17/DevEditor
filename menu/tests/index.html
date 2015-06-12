@@ -226,47 +226,5 @@
 	<body>
 		<div id="t1">Settings</div><div id="t2">Website</div><div id="t3">Editor</div><div id="circle"><img src="icon.png" id="logo"></div>
 	</body>
-	<script>
-		var t = [];
-		t[0] = document.getElementById("t1");
-		t[1] = document.getElementById("t2");
-		t[2] = document.getElementById("t3");
-		var c = document.getElementById("circle");
-		
-		t[0].onclick = function(){
-			setMain(0);
-		}
-		t[1].onclick = function(){
-			setMain(1);
-		}
-		t[2].onclick = function(){
-			setMain(2);
-		}
-		
-		function setMain(id){
-			for(var i in t){
-				if(i!=id){
-					t[i].style.animation = "t" + (1+Number(i)) +"-off 2s 1";
-				}
-			}
-			setTimeout(function(){
-				for(var i in t){
-					if(i!=id){
-						t[i].style.display="none";
-					}
-				}
-				t[id].style.animation = "t" + (1+id) +"-main 6s 1";
-				c.style.animation = "circle-off 2s 1";
-				setTimeout(function(){
-					c.style.display = "none";
-				}, 2000);
-				setTimeout(function(){
-					t[id].style.width="calc(100% - 30px)";
-					t[id].style.top="0";
-					t[id].style.right="0";
-					t[id].style.transform="rotate(0deg)";
-				}, 6000);
-			}, 2000);
-		}
-	</script>
+		<script type="text/javascript" src="start.js"></script>
 </html>

@@ -4,6 +4,8 @@ KEYBOARD.JOYSTICK = 2;
 KEYBOARD.SPECIAL = 0;
 
 var BUTTONSSCHEMAT = {};
+BUTTONSSCHEMAT[KEYBOARD.SPECIAL] = {info: {maxX: 1,maxY: 1}, data:[{type:"special",value:'',startX:0,endX:1,startY:0,endY:1, onclick: function(e, k){document.location = "menu/tests/index.html";}}
+]};
 BUTTONSSCHEMAT[KEYBOARD.MAIN] = {info: {maxX: 10,maxY: 5}, data:[
 {type:"normal",value:'q',startX:0,endX:1,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'w',startX:1,endX:2,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'e',startX:2,endX:3,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'r',startX:3,endX:4,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'t',startX:4,endX:5,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'y',startX:5,endX:6,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'u',startX:6,endX:7,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'i',startX:7,endX:8,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'o',startX:8,endX:9,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'p',startX:9,endX:10,startY:1,endY:2,color:"#BCD784",fcolor:"#8F8F8F"},{type:"normal",value:'1',svalue:'!',startX:0,endX:1,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'2',svalue:'+',startX:1,endX:2,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'3',svalue:'-',startX:2,endX:3,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'4',svalue:'*',startX:3,endX:4,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'5',svalue:'/',startX:4,endX:5,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'6',svalue:'=',startX:5,endX:6,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'7',svalue:'^',startX:6,endX:7,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'8',svalue:'%',startX:7,endX:8,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'9',svalue:'<',startX:8,endX:9,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'0',svalue:'>',startX:9,endX:10,startY:0,endY:1,color:"#DEF1B6",fcolor:"#646464"},{type:"normal",value:'	',display:'TAB',sdisplay:'TAB',ssdisplay:'TAB', startX:0,endX:1,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'a',startX:1,endX:2,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'s',startX:2,endX:3,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'d',startX:3,endX:4,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'f',startX:4,endX:5,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'g',startX:5,endX:6,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'h',startX:6,endX:7,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'j',startX:7,endX:8,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'k',startX:8,endX:9,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'l',startX:9,endX:10,startY:2,endY:3,color:"#91B251",fcolor:"#E4E4E4"},{type:"normal",value:'"',svalue:"'",startX:0,endX:1,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'z',startX:1,endX:2,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'x',startX:2,endX:3,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'c',startX:3,endX:4,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'v',startX:4,endX:5,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'b',startX:5,endX:6,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'n',startX:6,endX:7,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"normal",value:'m',startX:7,endX:8,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7"},{type:"special",value:'←',startX:8,endX:10,startY:3,endY:4,color:"#71922E",fcolor:"#E7E7E7", onclick: function(e, k){k.editor.callBackspaceEvent();}},{type:"normal",value:'(',svalue: ')', startX:0,endX:1,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"normal",value:'{',svalue: '}', startX:1,endX:2,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"normal",value:'[',svalue: ']', startX:2,endX:3,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"normal",value:' ', startX:3,endX:6,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"normal",value:';',svalue: ':', startX:6,endX:7,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"normal",value:'.',svalue: ',', startX:7,endX:8,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF"},{type:"special",value:'↲',startX:8,endX:10,startY:4,endY:5,color:"#4C690F",fcolor:"#FFFFFF", onclick: function(e, k){k.editor.callEnterEvent();}}
 ]}
@@ -27,6 +29,9 @@ function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor){
 	specialKeyboard.classList.add("specialKeyboard");
 	specialKeyboard.addEventListener("touchstart", function(e){k.handleTouchStart(e,k);}, false);
 	specialKeyboard.addEventListener("touchend", function(e){k.handleTouchEnd(e,k);}, false);
+	var sbuttonBox = document.createElement("div");
+	sbuttonBox.classList.add("buttonBox");
+	specialKeyboard.appendChild(sbuttonBox);
 	keyboardArea.appendChild(specialKeyboard);
 	
 	var mainKeyboard = this.keyboards[KEYBOARD.MAIN] = document.createElement("div");
@@ -34,7 +39,7 @@ function Keyboard(pageSizeX, pageSizeY, keyboardArea, editor){
 	mainKeyboard.addEventListener("touchstart", function(e){k.handleTouchStart(e,k);}, false);
 	mainKeyboard.addEventListener("touchend", function(e){k.handleTouchEnd(e,k);}, false);
 	var buttonBox = document.createElement("div");
-	mainKeyboard.classList.add("buttonBox");
+	buttonBox.classList.add("buttonBox");
 	mainKeyboard.appendChild(buttonBox);
 	keyboardArea.appendChild(mainKeyboard);
 	
@@ -88,6 +93,7 @@ Keyboard.prototype.renameKeyboardButtons = function(k){
 	
 	for(var i in buttonBox.children) {
 		var b = buttonBox.children[i];
+		if(!b.classList)continue;
 		if(b.classList.contains("buttonVr"))continue;
 		var level = [];
 		level[0] = (b.display) ? b.display:b.code;
@@ -185,6 +191,7 @@ Keyboard.prototype.refreshKeyboardsElement = function(){
 	}
 	this.keyboards[this.selectedKeyboard].style.display = "block";
 	this.replanKeyboardButtons(KEYBOARD.MAIN);
+	this.replanKeyboardButtons(KEYBOARD.SPECIAL);
 }
 
 Keyboard.prototype.getKeyboard = function(k){
