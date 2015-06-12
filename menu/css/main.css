@@ -1,0 +1,95 @@
+/*
+     Body
+              */       
+body {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
+}
+
+/*
+     Navbar
+              */
+#navbar {
+	height: 100px;
+	box-shadow: 0 0 10px black;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	z-index: 2;
+	background-color: white;
+	animation: 2s cubic-bezier(0.68,-0.55,0.27,1.55) 0s normal none infinite running navbar-to-bottom;
+}
+@keyframes navbar-to-bottom {
+	0% {
+		top: 0;
+	}
+	100% {
+		top: calc(100% - 100px);
+	}
+}
+@keyframes navbar-to-top {
+	0% {
+		top: calc(100% - 100px);
+	}
+	100% {
+		top: 0;
+	}
+}
+/*
+     Editor
+              */
+#editor {
+	height: calc(100% - 100px);
+	width: 100%;
+	position: absolute;
+	top: 100px;
+	z-index: 1;
+	background-color: green;
+	animation: 2s cubic-bezier(0.68,-0.55,0.27,1.55) 0s normal none infinite running editor-to-bottom;
+}
+@keyframes editor-to-bottom {
+	0% {
+		top: 100px;
+	}
+	100% {
+		top: 100%;
+	}
+}
+@keyframes editor-to-top {
+	0% {
+		top: 100%;
+	}
+	100% {
+		top: 100px;
+	}
+}
+/*
+     Menu
+              */
+#menu {
+	height: calc(100% - 100px);
+	width: 100%;
+	position: absolute;
+	bottom: 100px;
+	z-index: 0;
+	background-color: yellow;
+	animation: 2s cubic-bezier(0.68,-0.55,0.27,1.55) 0s normal none infinite running menu-to-bottom;
+}
+@keyframes menu-to-bottom {
+	0% {
+		bottom: 100%;
+	}
+	100% {
+		bottom: 100px;
+	}
+}
+@keyframes menu-to-top {
+	0% {
+		bottom: 100px;
+	}
+	100% {
+		bottom: 100%;
+	}
+}
