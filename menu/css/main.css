@@ -6,7 +6,7 @@ body {
 	margin: 0;
 	border: 0;
 	overflow: hidden;
-	background-color: rgba(0,0,0,0.1);
+	background-color: #CECECE;
 }
 
 /*
@@ -50,8 +50,7 @@ body {
 	width: 100%;
 	position: absolute;
 	z-index: 1;
-	background-color: green;
-	/*animation: 2s cubic-bezier(0.68,-0.55,0.27,1.55) 0s normal none infinite running editor-to-bottom;*/
+	background-color: #CECECE;
 }
 #editor.bottom {
 	top: 100%;
@@ -84,8 +83,7 @@ body {
 	position: absolute;
 	bottom: 100px;
 	z-index: 0;
-	background-color: yellow;
-	/*animation: 2s cubic-bezier(0.68,-0.55,0.27,1.55) 0s normal none infinite running menu-to-bottom;*/
+	background-color: #CECECE;
 }
 /*
 @keyframes menu-to-bottom {

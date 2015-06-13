@@ -1,6 +1,8 @@
 var devEditor;
+var tm;
 window.onload = function(){
 	devEditor = new DevEditor(document.getElementById("menu"), document.getElementById("editor"), document.getElementById("navbar"));
+	tm = new TouchManager(document.getElementById("navbar"), true);
 }
 
 function DevEditor(menuBox, editorBox, navbarBox){
