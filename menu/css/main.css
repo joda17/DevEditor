@@ -85,7 +85,7 @@ body {
 	z-index: 0;
 	background-color: #CECECE;
 }
-/*
+
 @keyframes menu-to-bottom {
 	0% {
 		bottom: 100%;
@@ -101,4 +101,40 @@ body {
 	100% {
 		bottom: 100%;
 	}
-}*/
+}
+/*
+     TabMenu
+              */
+div.tabmenu {
+	background-color: #434343;
+	width: 100%;
+	height: 50px;
+	overflow-y: hidden;
+	overflow-x: auto;
+}
+div.tabmenu-gradient.left {
+	background: linear-gradient(to right, #434343, rgba(0,0,0,0));
+	width: 25%;
+	height: 50px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+div.tabmenu-gradient.right {
+	background: linear-gradient(to left, #434343, rgba(0,0,0,0));
+	width: 25%;
+	height: 50px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+div.tabButton {
+	padding-left: 40px;
+	padding-right: 40px;
+	height: 100%;
+	font-size: 40px;
+	font-weight: 900;
+	color: white;
+	transform: translate(-50%, 0);
+	display: inline;
+}
